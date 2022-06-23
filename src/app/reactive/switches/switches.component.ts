@@ -17,7 +17,7 @@ export class SwitchesComponent implements OnInit  {
   })
   persona={
     genero:'F',
-    notificaciones: true,
+    notificaciones: true, 
   }
 
   constructor(

@@ -1,0 +1,63 @@
+<h2>Validaciones Reactivas</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form autocomplete="off" [formGroup]="miFormulario"  (ngSubmit)="submitFormulario()">
+            <!-- Nombre -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" formControlName="nombre" placeholder="Nombre de usuario">
+                    <span class="form-text text-danger"
+                    *ngIf="campoNoValido('nombre')">
+                        Debe de ser en formato de nombre y apellido
+                    </span>
+                </div>
+            </div>
+             <!-- Email -->
+             <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="email" formControlName="email" placeholder="Email del usuario">
+                    <span class="form-text text-danger"
+                    *ngIf="campoNoValido('email')">
+                        Debe de ser en formato de email
+                    </span>
+                </div>
+            </div>
+             <!-- Username -->
+             <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Username</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text"  placeholder="Nickname del usuario">
+                </div>
+            </div>
+             <!-- Password -->
+             <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="password"  placeholder="Password del usuario">
+                </div>
+            </div>
+             <!-- Password2 -->
+             <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Confirmar</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="password"  placeholder="Confirmar la contraseña">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary float-end" type="submit">Crear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<h2>Form Valid: {{miFormulario.valid}}
+</h2>
+<h5>Nombre</h5>
+<pre>{{miFormulario.controls.nombre.errors | json}}</pre>
+<h5>Email</h5>
+<pre>{{miFormulario.controls.email.errors | json}}</pre>
